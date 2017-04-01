@@ -1,0 +1,20 @@
+[
+  {
+    "name": "bot.sasrio.xyz",
+    "hostname": "bot.sasrio.xyz",
+    "box": "debian/jessie64",
+    "ram": 4096,
+    "vcpu": 2,
+    "ssh_guest_port": 7411,
+    "private_ip_addr": "192.168.74.11",
+    "scripts": [
+      [
+        "setup.sh", []
+      ]
+    ],
+    "sync": {
+      "source": "../data/",
+      "destination": "/data"
+    }
+  }
+]
