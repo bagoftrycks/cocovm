@@ -35,7 +35,12 @@ add-apt-repository \
 apt-get update
 apt-get -y install docker-ce
 
-groupadd docker
+GROUP_DOCKER="docker"
+if [[ "$(getent group "$GROUP_DOCKER" | grep "$GROUP_DOCKER")" != "" ]]; then
+  log "group $GROUP_DOCKER does exist"
+else
+  addgroup "$GROUP_DOCKER"
+fi
 usermod -aG docker vagrant
 systemctl enable docker
 docker run hello-world
